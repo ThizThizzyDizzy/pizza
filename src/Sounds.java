@@ -129,7 +129,9 @@ public class Sounds{
             soundSystem.getChannel(source).fadeTo(60, soundNames.get(sound));
             enableAutoplay();
         }
-        soundSystem.getChannel(source).play(soundNames.get(sound));
+        if(source.equalsIgnoreCase("SFX")){
+            soundSystem.playSFX(soundNames.get(sound));
+        }else soundSystem.getChannel(source).play(soundNames.get(sound));
     }
     @Deprecated
     public static synchronized void playSoundOneChannel(String source, String sound){
